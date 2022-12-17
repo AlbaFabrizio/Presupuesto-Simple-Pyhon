@@ -1,0 +1,47 @@
+#Toma de datos
+def general():
+  #Item
+  concepto= input("Concepto: ")
+  while concepto=="":
+    print("Complete el dato")
+    return general()
+
+  #Inicio de operaciones numericas
+  unidades= float(input("Unidades: "))
+  while unidades=="":
+    print("Complete el dato")
+    unidades=float(input("Unidades: "))
+  valor_unidad= float(input("Costo por unidad: "))
+  while valor_unidad=="":
+    print("Complete el dato")
+    valor_unidad=float(input("Costo por unidad: "))
+  
+  #Calculo y validacion
+  operacion= input("Ingres el signo de operacion( * , / , + , - ): ")
+  while operacion=="":
+    print("Ingrese el signo de operacion a realizar")
+    operacion= input("Ingres el signo de operacion( * , / , + , - ): ")
+  if operacion=="*":
+    resultado= (unidades) * (valor_unidad)
+  elif operacion=="/":
+    resultado= (unidades) / (valor_unidad)
+  elif operacion=="+":
+    resultado= (unidades) + (valor_unidad)
+  elif operacion=="-":
+    resultado= (unidades) - (valor_unidad)
+
+  print(f"Valor final: {resultado}")
+
+general()
+
+
+#Muestra de resultado final y pedido de nueva accion
+print("Ingrese + si desea sumar otro item o, - si desea finalizar")
+continuar= input()
+while continuar=="":
+  print("Ingrese - o + segun lo que desea realizar")
+  continuar= input()
+if continuar=="+":
+  general()
+if continuar=="-":
+  print("FIN") 
